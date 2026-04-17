@@ -37,4 +37,4 @@ const productSlice = createSlice({
 });
 
 export const { removeProduct, addToCart } = productSlice.actions;
-export default productSlice;
+export default productSlice.reducer; //store needs the reducer

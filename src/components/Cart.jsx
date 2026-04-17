@@ -1,12 +1,20 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart, removeProduct } from "../store/productSlice";
 
-const Cart = () => {
-  const cart = useSelector((state) => state.product.cart);
-  const items = useSelector((state) => state.product.items);
+const Cart = (props) => {
+  // const price = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const dispatch = useDispatch();
 
-  return (<div>{items.map((item)=>
-        
-)}</div>);
+  return (
+    <div>
+      <p>{props.name}</p>
+      <p>Quantity: {props.quantity}</p>
+      <p>Price: {props.price * props.quantity}</p>
+      <button onClick={() => dispatch(addToCart(props))}>Add to cart</button>
+      <button onClick={() => dispatch(removeProduct(props.id))}>
+        Remove product
+      </button>
+    </div>
+  );
 };
+export default Cart;
