@@ -19,17 +19,22 @@ const products = [
 
 const productSlice = createSlice({
   name: "product",
-  initialState: { cart: [], count: 0, price: 0 },
+  initialState: { items: products, cart: [], quantity: 0 },
   reducers: {
-    addProduct: (state, action) => {
-      //action addProduct
-      state.cart.push(action.payload); //action.payload is envelope which contains the payload (data which we enter) and type which is the label
-    },
     removeProduct: (state, action) => {
       state.cart = state.cart.filter((p) => p.id != action.payload);
     },
-    increment: (state) => {
-      state.count += 1;
+    addToCart: (state, action) => {
+      //action addProduct
+      const existing = state.cart.find((item) => item.id === action.payload.id);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        state.cart.push({ ...action.payload, quantity: 1 }); //creating a quantity
+      }
     },
   },
 });
+
+export const { removeProduct, addToCart } = productSlice.actions;
+export default productSlice;

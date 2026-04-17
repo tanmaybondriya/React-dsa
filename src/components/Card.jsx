@@ -1,11 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 // import { UserContext } from "../context/UserContext";
-import { useSelector } from "react-redux";
+
 function Card(props) {
   const [follow, setFollow] = useState(false);
   const [count, setCount] = useState(0);
   // const { removeUser } = useContext(UserContext);
-  const user = useSelector((state) => state.users.list);
 
   const handleFollow = () => {
     if (!follow) {

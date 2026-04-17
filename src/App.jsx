@@ -61,51 +61,52 @@ function App() {
 
   return (
     // <UserContext.Provider value={{ user, removeUser }}>
-    <div>
-      <input
-        type="text"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+    // <div>
+    //   <input
+    //     type="text"
+    //     value={search}
+    //     onChange={(e) => setSearch(e.target.value)}
+    //   />
 
-      <form onSubmit={handleSubmit}>
-        <input
-          ref={inputRef}
-          type="text"
-          value={name} //this makes them controlled components
-          placeholder="enter name"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          value={role}
-          placeholder="Role"
-          onChange={(e) => setRole(e.target.value)}
-        />
-        <input
-          type="text"
-          value={url}
-          placeholder="place the url"
-          onChange={(e) => setUrl(e.target.value)}
-        />
-        <button type="submit">Add User</button>
-      </form>
-      <Suspense fallback={<p>Loading...</p>}>
-        {filtered.map((user) => (
-          <Card
-            key={user.id}
-            user={user}
-            onRemove={() => dispatch(removeUser(user.id))}
-          />
-        ))}
-      </Suspense>
-      <div>
-        <h3>Shared State:{text}</h3>
-        <Input value={text} onUpdate={setText} />
-        <Display value={text} />
-      </div>
-    </div>
+    //   <form onSubmit={handleSubmit}>
+    //     <input
+    //       ref={inputRef}
+    //       type="text"
+    //       value={name} //this makes them controlled components
+    //       placeholder="enter name"
+    //       onChange={(e) => setName(e.target.value)}
+    //     />
+    //     <input
+    //       type="text"
+    //       value={role}
+    //       placeholder="Role"
+    //       onChange={(e) => setRole(e.target.value)}
+    //     />
+    //     <input
+    //       type="text"
+    //       value={url}
+    //       placeholder="place the url"
+    //       onChange={(e) => setUrl(e.target.value)}
+    //     />
+    //     <button type="submit">Add User</button>
+    //   </form>
+    //   <Suspense fallback={<p>Loading...</p>}>
+    //     {filtered.map((user) => (
+    //       <Card
+    //         key={user.id}
+    //         user={user}
+    //         onRemove={() => dispatch(removeUser(user.id))}
+    //       />
+    //     ))}
+    //   </Suspense>
+    //   <div>
+    //     <h3>Shared State:{text}</h3>
+    //     <Input value={text} onUpdate={setText} />
+    //     <Display value={text} />
+    //   </div>
+    // </div>
     // </UserContext.Provider>
+    <div></div>
   );
 }
 
